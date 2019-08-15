@@ -100,26 +100,27 @@ The following results were obtained for original dataset - \\
 \vspace{0.5cm}
 Clearly by reducing the dimension we are not losing something. Hence it is better to transform the data two 2 dimensions and then train our model.
 
-My hypothesis that KNN should work better is not clearly visible here as the labels \textit{STANDING} and \textit{SITTING} data points are nearby. Hence it will be better to make a our model by combining the power of different models.
+By seeing Fig\ref{fig:svc}$\&$\ref{fig:knn} My hypothesis that KNN works better for labels except \textit{LAYING}, \textit{STANDING} and \textit{SITTING} data points are nearby. Hence it will be better to make a our model by combining the power of different models.
 
-So we will train the whole data using KNN and train the data points with labels \textit{STANDING} and \textit{SITTING} using SVC. Now while predicting our answer we will use KNN, if KNN predicts \textit{STANDING} or \textit{SITTING} then we will use SVC's prediction.
-\newpage
+So we will train the whole data using KNN and train the data points with labels \textit{LAYING}, \textit{STANDING} and \textit{SITTING} using SVC. Now while predicting our answer we will use KNN, if KNN predicts \textit{LAYING}, \textit{STANDING} or \textit{SITTING} then we will use SVC's prediction.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.450]{svc.png}
 	\caption{Confusion Matrix for SVC rbf}
+	\label{fig:svc}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.450]{knn.png}
 	\caption{Confusion Matrix for KNN K=20}
+	\label{fig:knn}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.450]{combo.png}
 	\caption{Confusion Matrix for Final model}
 \end{figure}
-By this model we combine the prediction capabilites of both KNN and SVC. Final acuracy is around $\sim$96.5 $\%$.
+By this model we combine the prediction capabilites of both KNN and SVC. Final acuracy is around $>\sim$96.5 $\%$. The existing accuracy of this dataset is around 96$\%$.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.30]{result_train.png}
@@ -134,7 +135,6 @@ By this model we combine the prediction capabilites of both KNN and SVC. Final a
 \begin{itemize}
 	\item \textbf{Chosing the right model} - I was confused between SVC and KNN. SVC was more accurate where as KNN was more intuitive. At last with Ma'am advice I went with a combined model as metioned above.
 	\item \textbf{t-SNE vs PCA and other models} - This was a little tricky. As my data set had 561 dimensions, it was not practical to visual it as such. So I used tsne to gain more insights about the data. Later, as tsne was oreserving most of the data I chosed to train my model in 2 Dimensions.
-	\item \textbf{Using Kaggle kernels and notebooks} I learned the power of notebooks and the flexibilty that they offer. This project made me familiar with Kaggle interface and their kernels(which are quite powerfull).
 \end{itemize}
 \section{Links}
 	Data Set - \href{https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones}{UCI Machine Learning Repository}\\
